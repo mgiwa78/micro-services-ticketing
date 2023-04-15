@@ -23,7 +23,7 @@ router.post(
     const existingUser = await User.findOne({ email: email });
 
     if (!existingUser) {
-      throw new BadRequestError("Invalid11 Login credentials");
+      throw new BadRequestError("Invalid Login credentials");
     }
     const passwordsMatch = await Password.compare(
       existingUser.password,
@@ -31,7 +31,7 @@ router.post(
     );
 
     if (!passwordsMatch) {
-      throw new BadRequestError("Invalid22 Login credentials");
+      throw new BadRequestError("Invalid Login credentials");
     }
 
     const existingUserJwt = jwt.sign(
